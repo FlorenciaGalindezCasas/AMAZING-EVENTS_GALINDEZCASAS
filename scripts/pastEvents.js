@@ -1,27 +1,70 @@
-const divCards = document.getElementById("cards");
+let currentDate = data.currentDate;
 
-let tarjetas = "";
+function pastEvents(eventos){      
+       let pastEvent = eventos.filter(datos => Date.parse(currentDate) > Date.parse(datos.date))
+       createCards(pastEvent)
+    } 
+pastEvents(data.events);
 
-let currentDate = data.currentDate
+const divCheck = document.getElementById("checkbox");
+const input = document.getElementById("search");
 
-for (datos of data.events) {
-if(Date.parse(currentDate) > Date.parse(datos.date)){
-  tarjetas += ` 
-         <div class="card" style="width: 18rem">
-          <img src="${datos.image}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h6>${datos.date}</h6>
-            <h5 class="card-title">${datos.name}</h5>
-            <p class="card-text">${datos.description}</p>
-            </div>
-            <div class="precio">
-              <h6>$${datos.price}</h6>
-              <button type="button" class="btn-price"  onclick="location.href='./details.html '">See more..</button>
-            </div>
-        </div>`;
-}
+input.addEventListener("input", filtrarCategorias);
+divCheck.addEventListener("change", filtrarCategorias);
+
+function filtrarCategorias() {
+  // let filtroTexto = filtrarTexto(data.events);
+  let filtroCheck = filtrarCheckbox(data.events);
+  createCards(filtroCheck);
 }
 
-console.log(tarjetas);
+eliminarDuplicado(data.events);
 
-divCards.innerHTML = tarjetas;
+function eliminarDuplicado(eventos) {
+  let categorias = "";
+  let cat = eventos.map((datos) => datos.category);
+  let setCat = new Set(cat);
+  let arrayCat = Array.from(setCat);
+
+  arrayCat.forEach((category) => {
+    categorias += `
+        <input class="form-check-input" type="checkbox" id="${category}" value="${category}">
+        <label class="form-check-label" for="${category}">${category}</label>
+      `;
+  });
+  divCheck.innerHTML = categorias;
+}
+
+function filtrarTexto(eventos) {
+  let textoFiltrado = eventos.filter((datos) =>
+    datos.name.toLowerCase().includes(input.value)
+  );
+  return textoFiltrado;
+}
+
+function filtrarCheckbox(eventos) {
+  let checkboxs = document.querySelectorAll("input[type='checkbox']");
+  let checks = Array.from(checkboxs);
+  let checkeados = checks.filter((check) => check.checked);
+  let arrayCheckeados = checkeados.map((checksChecked) => checksChecked.value);
+  console.log(arrayCheckeados);
+  let category = eventos.filter((datos) =>
+    arrayCheckeados.includes(datos.category)
+  );
+  console.log(category);
+  if (arrayCheckeados.length > 0) {
+    return category;
+  }
+  return eventos;
+}
+
+
+
+
+
+
+
+
+
+
+
