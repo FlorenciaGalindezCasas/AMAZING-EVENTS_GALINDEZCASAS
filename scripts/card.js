@@ -17,7 +17,7 @@ eventos.forEach(datos => {
           </div>
           <div class="precio">
             <h6>$${datos.price}</h6>
-            <button type="button" class="btn-price"  onclick="location.href='./details.html '">See more..</button>
+            <button type="button" class="btn-price"  onclick="location.href='./details.html?id=${datos._id} '">See more..</button>
           </div>
       </div>`;
      })

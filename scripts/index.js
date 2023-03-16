@@ -1,2 +1,2 @@
-createCards(data.events);
+createCards(arrayGral);
 

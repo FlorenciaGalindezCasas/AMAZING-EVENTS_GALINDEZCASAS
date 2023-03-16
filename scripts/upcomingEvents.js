@@ -1,10 +1,10 @@
 let currentDate = data.currentDate;
 
 function upcomingEvents(eventos) {
-  let upcomingEvent = eventos.filter(
+  arrayGral= eventos.filter(
     (datos) => Date.parse(currentDate) < Date.parse(datos.date)
   );
-  createCards(upcomingEvent);
+  createCards(arrayGral);
 }
-upcomingEvents(data.events);
+upcomingEvents(arrayGral);
 
