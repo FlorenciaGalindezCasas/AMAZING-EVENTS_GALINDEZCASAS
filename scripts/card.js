@@ -2,7 +2,7 @@ const divCards = document.getElementById("cards");
 
 function createCards(eventos){
  if (eventos.length === 0) {
-   divCards.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
+   divCards.innerHTML = `<h1>No match</h1>`;
    return
 }  
 let cards = "";

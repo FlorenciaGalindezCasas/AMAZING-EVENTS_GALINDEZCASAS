@@ -2,13 +2,20 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 let detailId = urlSearchParams.get("id");
 const divDet = document.getElementById("contdet");
 
+async function iniciarDetails() {
+  let eventos = await getData();
+  arrayEventos = eventos.events;
+  details(detailsFilter(arrayEventos));
+}
+iniciarDetails();
+
+
 function detailsFilter(eventos){
    let detFiltrado = eventos.filter(datos => datos._id === parseInt(detailId))
    console.log(detFiltrado)
    return detFiltrado
 }
 
-details(detailsFilter(data.events))
 
 function details(eventos) {
   let detalles = "";

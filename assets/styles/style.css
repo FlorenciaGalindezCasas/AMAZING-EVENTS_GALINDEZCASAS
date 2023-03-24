@@ -72,16 +72,20 @@ nav{
   border-bottom: 1px solid #e0046c;
 }
 
+h2{
+  color: #e0046c;
+}
+
 #der a{
   text-align: left;
   text-decoration: none;
-  color: black;
+  color: #e0046c;
 }
 
 #izq a{
   text-align: right;
   text-decoration: none;
-  color: black;
+  color: #e0046c;
 }
 
 .row{
@@ -95,10 +99,29 @@ nav{
   flex-wrap: wrap;
 }
 
+#checkbox input {
+    border: 1px solid black;
+}
+
+#contContact input:hover,#contContact textarea:hover, #search:hover, #checkbox input:hover{
+  border-color: #e0046c;
+}
+
+#contContact input:focus,#contContact textarea:focus, #search:focus, #checkbox input:focus {
+    border-color: #e0046c;
+    box-shadow: 0 0 0 0.2rem rgba(237, 13, 117, 0.25);
+}
+
+#checkbox input:checked {
+    background-color:  #e0046c;
+    border-color: #e0046c;
+}
+
 #search{
   height: 40%;
   padding-right: 3.5%;
 }
+
 
 .lupa{  
   width: 10%;
@@ -144,7 +167,6 @@ nav{
   background-color: #e0046c;
   border: none;
   color: azure;
-  box-shadow: -3px -3px rgba(143, 129, 129, 0.5);  
 }
 
 #footer{
@@ -195,7 +217,7 @@ nav{
   border-radius: 8px;  
 }
 
-.card:hover, #contContact:hover, #details:hover{  
+.card:hover, #contContact:hover, #details:hover, .table tr:hover{  
   background-color: #efeaecb3;
 }
 
@@ -213,7 +235,8 @@ nav{
 
 .table{
   width: 80%;
-  margin:auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
   border: 1px solid #e0046c ;
 }
 
@@ -222,9 +245,13 @@ nav{
   text-align: left;
 }
 
+.table th:hover{
+  background-color: #cecaccab;
+}
+
 .table, tr, td{
   border: 1px solid #e0046c;
-  text-align: center;
+  text-align: justify;
 }
 
 .maindet{

@@ -1,9 +1,11 @@
-let currentDate = data.currentDate;
-
-function pastEvents(eventos){      
-       arrayGral = eventos.filter(datos => Date.parse(currentDate) > Date.parse(datos.date))
-       createCards(arrayGral)
-       console.log(arrayGral)
-    } 
-pastEvents(arrayGral);
-
+async function pastEvents() {
+  let eventos = await getData();
+  arrayEventos = eventos.events;
+  let currentDate = eventos.currentDate;
+  arrayGral = arrayEventos.filter(
+    (datos) => Date.parse(currentDate) > Date.parse(datos.date)
+  );
+  createCards(arrayGral);
+  verCategorias(eliminarDuplicado(arrayEventos));  
+}
+pastEvents();

@@ -1,10 +1,6 @@
 const divCheck = document.getElementById("checkbox")
 const input = document.getElementById("search");
 
-let arrayGral = data.events
-
-verCategorias(eliminarDuplicado(data.events));
-
 //Muestra todas las categorias
 function verCategorias(eventos){
   let categorias= ''
@@ -14,7 +10,6 @@ function verCategorias(eventos){
     `
   });
     divCheck.innerHTML = categorias
-    
   }
 
 //Elimina categorias duplicadas
@@ -28,7 +23,6 @@ function eliminarDuplicado(eventos){
 
 //Filtrar por texto
 input.addEventListener('input', filtroComb)
-
 function filtrarPorTexto(eventos){
   let filtroTexto = eventos.filter(datos => datos.name.toLowerCase().includes(input.value.toLowerCase())
   )
@@ -37,7 +31,6 @@ function filtrarPorTexto(eventos){
 
 //Filtrar por checkbox
 divCheck.addEventListener('change', filtroComb)
-
 function filtrarPorCheckbox(eventos){
   //traer elemento input checkbox
   let checkboxes = document.querySelectorAll("input[type='checkbox']")
@@ -59,7 +52,6 @@ function filtrarPorCheckbox(eventos){
   }
   return eventos;
 }
-
 
 //Filtro combinado
 function filtroComb(){
