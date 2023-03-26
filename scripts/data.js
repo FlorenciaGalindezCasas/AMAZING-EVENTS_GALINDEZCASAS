@@ -16,7 +16,6 @@ async function getData() {
     })
     return dataJson
   })
-  console.log(data);
   return data;
 }
 

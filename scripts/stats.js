@@ -12,11 +12,8 @@ async function iniciarTablaUp() {
   arrayGral = arrayEventos.filter(
     (datos) => Date.parse(currentDate) < Date.parse(datos.date)
   );
-  console.log(arrayGral);
   let arrayCat = arrayGral.map((datos) => datos.category);
-  console.log(arrayCat);
   let arrayCatFilter = Array.from(new Set(arrayCat));
-  console.log(arrayCatFilter);
   createTableUp(
     arrayCatFilter,
     revenuesEvents(arrayCatFilter, arrayGral, "estimate"),
@@ -32,11 +29,8 @@ async function iniciarTablaPast() {
   arrayGral = arrayEventos.filter(
     (datos) => Date.parse(currentDate) > Date.parse(datos.date)
   );
-  console.log(arrayGral);
   let arrayCat = arrayGral.map((datos) => datos.category);
-  console.log(arrayCat);
   let arrayCatFilter = Array.from(new Set(arrayCat));
-  console.log(arrayCatFilter);
   eventsStatistics(arrayGral);
   createTablePast(
     arrayCatFilter,
@@ -100,7 +94,6 @@ array1.forEach(elementos =>{
   })
   arrayRevenues = arrRevenues ;
   arrRevenues=[]
-  console.log(arrayRevenues);
   return arrayRevenues; 
 }
 

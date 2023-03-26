@@ -12,7 +12,6 @@ iniciarDetails();
 
 function detailsFilter(eventos){
    let detFiltrado = eventos.filter(datos => datos._id === parseInt(detailId))
-   console.log(detFiltrado)
    return detFiltrado
 }
 

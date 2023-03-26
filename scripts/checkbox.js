@@ -15,9 +15,7 @@ function verCategorias(eventos){
 //Elimina categorias duplicadas
 function eliminarDuplicado(eventos){
   let arrayCat = eventos.map(datos => datos.category)
-  console.log(arrayCat)
   let arrayCatFilter = Array.from(new Set(arrayCat))
-  console.log(arrayCatFilter)  
   return arrayCatFilter
 }
 
@@ -36,16 +34,12 @@ function filtrarPorCheckbox(eventos){
   let checkboxes = document.querySelectorAll("input[type='checkbox']")
   //crear array de todos los checkboxs
   let arrayCheckbox = Array.from(checkboxes)
-  console.log(arrayCheckbox)
   //filtra array checkbox segun checked 
-  let checkboxChecked = arrayCheckbox.filter(check => check.checked)
-  console.log(checkboxChecked)  
+  let checkboxChecked = arrayCheckbox.filter(check => check.checked) 
   //crea array con las categorias (input) checked
   let arrayCheckChecked = checkboxChecked.map(checksChecked => checksChecked.value)
-  console.log(arrayCheckChecked)
   //fitra array de obj segun categorias checked
   let arrayCheckFitrado = eventos.filter((datos) => arrayCheckChecked.includes(datos.category));
-  console.log(arrayCheckFitrado)
   //condicional, si el largo del array de checkbox checked es mayor a 1, es decir se checkeo por lo menos una checkbox, retorna el array con los objetos que coinciden con la categoria de la checkbox, sino retorna el array de obj sin filtrar
   if (checkboxChecked.length > 0) {
     return arrayCheckFitrado;
